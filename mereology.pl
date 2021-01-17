@@ -46,8 +46,7 @@ part_t(Parent, Child, Visited) :-
 %! part_equality(A, B) is det.
 %  A and B are equal if they
 %  are the same part.
-part_equality(A, B) :-
-	fail.
+part_equality(A, A).
 
 %! proper_extension(A, B) is det.
 %  B is a part extension of A if
