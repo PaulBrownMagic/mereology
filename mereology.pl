@@ -70,7 +70,7 @@ part_underlaps(A, B) :-
 	fail.
 
 %! part_disjoint(A, B) is det.
-%  A and B are disjoint if they share no
-%  parts.
+%  A and B are disjoint if they don't
+%  overlap.
 part_disjoint(A, B) :-
-	fail.
+	\+ part_overlaps(A, B).
