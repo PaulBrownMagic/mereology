@@ -53,22 +53,27 @@ part_equality(A, A).
 %  it extends A, i.e. if B is a part
 %  of A and the two parts aren't equal
 proper_extension(Part, Extension) :-
-	fail.
+	dif(Extension, Part),
+	part(Extension, Part).
 
 %! part_overlaps(A, B) is det.
 %  A and B overlap if there is some
 %  part of which both A and B are parts.
 part_overlaps(A, B) :-
-	fail.
+	part(X),
+	part(X, A),
+	part(X, B).
 
 %! part_underlaps(A, B) is det.
 %  A and B underlap if there is some
 %  part which is part of both A and B.
 part_underlaps(A, B) :-
-	fail.
+	part(X),
+	part(A, X),
+	part(B, X).
 
 %! part_disjoint(A, B) is det.
 %  A and B are disjoint if they share no
 %  parts.
 part_disjoint(A, B) :-
-	fail.
+	\+ part_underlaps(A, B).
