@@ -47,6 +47,8 @@ part_t(Parent, Child, Visited) :-
 %  A and B are equal if they
 %  are the same part.
 part_equality(A, A).
+% logically defined as:
+% :- part(A, B), part(B, A).
 
 %! proper_extension(A, B) is det.
 %  B is a part extension of A if
@@ -73,7 +75,8 @@ part_underlaps(A, B) :-
 	part(B, X).
 
 %! part_disjoint(A, B) is det.
-%  A and B are disjoint if they share no
-%  parts.
+%  A and B are disjoint if they don't
+%  overlap.
 part_disjoint(A, B) :-
-	\+ part_underlaps(A, B).
+	\+ part_overlaps(A, B).
+
