@@ -29,8 +29,19 @@
 %  reflexive, transitive, and
 %  antisymettric version of
 %  proper_part/2
+
+% Reflexive
+part(Part, Part) :- part(Part).
+% Transitive
 part(Parent, Child) :-
-	fail.
+	part_t(Parent, Child, [Parent]).
+part_t(Parent, Child, Visited) :-
+	proper_part(Parent, Child),
+	\+ memberchk(Child, Visited).
+part_t(Parent, Child, Visited) :-
+	proper_part(Parent, Between),
+	\+ memberchk(Between, Visited),
+	part_t(Between, Child, [Between|Visited]).
 
 %! part_equality(A, B) is det.
 %  A and B are equal if they
