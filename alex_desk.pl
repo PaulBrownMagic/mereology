@@ -31,9 +31,9 @@ part(legLongBrace-N) :- between(1, 3, N).
 proper_part(desk, legs).
 proper_part(desk, deskBox).
 
-proper_part(legs, legsUpright-N) :- part(legsUpright-N).
-proper_part(legs, legsShortBrace-N) :- part(legsShortBrace-N).
-proper_part(legs, legsLongBrace-N) :- part(legsLongBrace-N).
+proper_part(legs, legUpright-N) :- part(legUpright-N).
+proper_part(legs, legShortBrace-N) :- part(legShortBrace-N).
+proper_part(legs, legLongBrace-N) :- part(legLongBrace-N).
 
 proper_part(deskBox, drawer-N) :- part(drawer-N).
 proper_part(deskBox, deskBoxSide-N) :- part(deskBoxSide-N).
