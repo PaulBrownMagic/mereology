@@ -50,6 +50,10 @@ part_equality(A, A) :-
 	part(A).
 % logically defined as:
 % :- part(A, B), part(B, A).
+% Seen as only the reflexive goal
+% of part/2 can succeed, we bypass
+% the call to part/2 for computational
+% efficiency.
 
 %! proper_extension(A, B) is det.
 %  B is a part extension of A if
